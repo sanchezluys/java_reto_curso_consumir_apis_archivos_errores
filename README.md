@@ -1,2 +1,8 @@
-# java_reto_curso_consumir_apis_archivos_errores
-retos en en curso de java de alura latam, usando apis, archivos y control de errores.
+# JAVA ALURA LATAM USO DE APIS, ARCHIVOS Y CONTROL DE ERRORES 
+Versiones
+
+| Versión | Descripción              | Bugs |
+|---------|--------------------------|------|
+| 1        | Alfa, inicializando todo | n/a  |
+|         |                          |      |
+|         |                          |      |
