@@ -1,7 +1,6 @@
 package scr;
 import com.google.gson.Gson;
 import scr.modelos.Titulo;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -51,6 +50,11 @@ public class PrincipalConBusqueda {
         // es necesario hacer la conversion en la clase Titulo, con anotaciones @SerializedName
         System.out.println("Con las anotaciones: ");
         System.out.println("Nombre->Title: "+ miTitulo.getNombre()+ " Año Lanzamiento -> Year: " + miTitulo.getFechaDeLanzamiento());
+        System.out.println("*********************************");
+        System.out.println("Se agrega el constructor toString() a la clase Titulo");
+        System.out.println("Nombre->Title: "+ miTitulo);
+        System.out.println("*********************************");
+        System.out.println("* Usando DTO Data transfer Objet  con RECORD **");
 
     }
 }
