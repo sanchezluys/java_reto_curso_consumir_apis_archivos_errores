@@ -1,6 +1,9 @@
 package scr;
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import scr.modelos.Titulo;
+import scr.modelos.TituloOmdb;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -55,7 +58,17 @@ public class PrincipalConBusqueda {
         System.out.println("Nombre->Title: "+ miTitulo);
         System.out.println("*********************************");
         System.out.println("* Usando DTO Data transfer Objet  con RECORD **");
-
+        System.out.println("1. Se agrega la clase record: TituloOmdb");
+        TituloOmdb miTituloOmdb =gson.fromJson(json, TituloOmdb.class);
+        System.out.println("miTituloOmdb: "+ miTituloOmdb);
+        // se crea otro gson que tome en cuenta las mayusculas del json ejm: Title
+        Gson gson2 = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy
+                        .UPPER_CAMEL_CASE).create();
+        System.out.println("gson2: " + gson2);
+        //** ahora con el nuevo gson2
+        TituloOmdb miTituloOmdb2 = gson2.fromJson(json, TituloOmdb.class);
+        System.out.println("miTituloOmdb2: "+ miTituloOmdb2);
     }
 }
 
