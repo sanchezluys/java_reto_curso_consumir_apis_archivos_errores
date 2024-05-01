@@ -20,7 +20,9 @@ public class Titulo implements Comparable<Titulo>{
         this.nombre=miTituloOmdb2.title();
         // es necesario parsear de string a integer
         this.fechaDeLanzamiento= Integer.valueOf(miTituloOmdb2.year());
-        this.duracionEnMinutos=Integer.valueOf(miTituloOmdb2.runtime());
+        //this.duracionEnMinutos=Integer.valueOf(miTituloOmdb2.runtime());
+        //se tiene que corregir por el error de 60 min
+        this.duracionEnMinutos=Integer.valueOf(miTituloOmdb2.runtime().substring(0,2));
     }
 
     public String getNombre() {
