@@ -72,8 +72,19 @@ public class PrincipalConBusqueda {
         TituloOmdb miTituloOmdb2 = gson2.fromJson(json, TituloOmdb.class);
         System.out.println("miTituloOmdb2: "+ miTituloOmdb2);
         //* se crea el nuevo constructor
-        Titulo miTitulo3 = new Titulo(miTituloOmdb2);
-        System.out.println("titulo 3: "+miTitulo3);
+        // ahora se activa el try-catch para el manejo de errores
+        try {
+            Titulo miTitulo3 = new Titulo(miTituloOmdb2);
+            System.out.println("titulo 3: " + miTitulo3);
+        }
+        catch (NumberFormatException e){
+            System.out.println("Acaba de ocurrir un error!");
+            System.out.println("Descripcion del error: " + e.getMessage());
+            System.out.println("Causa del error: " + e.getCause());
+        }
+        System.out.println("Finaliza el programa, asi suceda un error");
+
+
     }
 }
 
