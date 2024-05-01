@@ -59,9 +59,11 @@ public class PrincipalConBusqueda {
         System.out.println("*********************************");
         System.out.println("* Usando DTO Data transfer Objet  con RECORD **");
         System.out.println("1. Se agrega la clase record: TituloOmdb");
+
         TituloOmdb miTituloOmdb =gson.fromJson(json, TituloOmdb.class);
         System.out.println("miTituloOmdb: "+ miTituloOmdb);
         // se crea otro gson que tome en cuenta las mayusculas del json ejm: Title
+        System.out.println("2. Se agrega la clase record: gson2");
         Gson gson2 = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy
                         .UPPER_CAMEL_CASE).create();
@@ -69,6 +71,9 @@ public class PrincipalConBusqueda {
         //** ahora con el nuevo gson2
         TituloOmdb miTituloOmdb2 = gson2.fromJson(json, TituloOmdb.class);
         System.out.println("miTituloOmdb2: "+ miTituloOmdb2);
+        //* se crea el nuevo constructor
+        Titulo miTitulo3 = new Titulo(miTituloOmdb2);
+        System.out.println("titulo 3: "+miTitulo3);
     }
 }
 
