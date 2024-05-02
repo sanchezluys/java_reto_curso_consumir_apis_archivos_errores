@@ -2,6 +2,7 @@ package scr;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import scr.excepciones.ErrorEnConversionException;
 import scr.modelos.Titulo;
 import scr.modelos.TituloOmdb;
 import java.io.IOException;
@@ -90,6 +91,10 @@ public class PrincipalConBusqueda {
             System.out.println("Descripcion del error: " + e.getMessage());
             System.out.println("Causa del error: " + e.getCause());
         }
+        catch (ErrorEnConversionException e){
+            System.out.println("se ha generado la execepcion propia!!");
+            System.out.println(e.getMessage());
+        }
         catch (Exception e){
             System.out.println("Acaba de ocurrir un error Inesperado!");
             System.out.println("Descripcion del error: " + e.getMessage());
@@ -116,10 +121,13 @@ public class PrincipalConBusqueda {
             //**
             System.out.println(response.body());
 
-            System.out.println("nueva direccion corregida con .replace(), sin errores"+ direccion);
+            System.out.println("nueva direccion corregida con .replace(), sin errores\n"+ direccion);
         }
         catch (IllegalArgumentException e){
             System.out.println("Se ha dado una excepcion");
+        }
+        catch (ErrorEnConversionException e){
+            System.out.println("Se ha ejecutado la excepcion propia!! ");
         }
 
 

@@ -1,5 +1,7 @@
 package scr.modelos;
 import com.google.gson.annotations.SerializedName;
+import scr.excepciones.ErrorEnConversionException;
+
 //
 public class Titulo implements Comparable<Titulo>{
     @SerializedName("Title")
@@ -20,9 +22,15 @@ public class Titulo implements Comparable<Titulo>{
         this.nombre=miTituloOmdb2.title();
         // es necesario parsear de string a integer
         this.fechaDeLanzamiento= Integer.valueOf(miTituloOmdb2.year());
+        // agregando excepcion propia
+        if(miTituloOmdb2.runtime().contains("N/A")){
+          throw new ErrorEnConversionException("No pude convertir, tiene N/A");
+        }
+
+
         //this.duracionEnMinutos=Integer.valueOf(miTituloOmdb2.runtime());
         //se tiene que corregir por el error de 60 min
-        this.duracionEnMinutos=Integer.valueOf(miTituloOmdb2.runtime().substring(1,3));
+        this.duracionEnMinutos=Integer.valueOf(miTituloOmdb2.runtime().substring(0,3).replace(" ",""));
     }
 
     public String getNombre() {

@@ -1,12 +1,10 @@
 # ![aluraoracle.jpg](assets/aluraoracle.jpg)
 
-# ALURA LATAM
-
-## JAVA USO DE APIS, ARCHIVOS Y CONTROL DE ERRORES
-
+## JAVA SDK 17 + Intellij IDEA
+## USO DE APIS, ARCHIVOS Y CONTROL DE ERRORES
 ### Profesor: Bruno Darío Fernández Ellerbach
 
-Avances
+Avances del curso
 
 
 | Tema                   | Descripción                                                                     | Bugs/Observación                                                                                                                                       |
@@ -28,7 +26,12 @@ Avances
 |                        | - Se agrega otro catch con el nuevo error: IllegalArgumentException             |                                                                                                                                                         |
 |                        | - Se agrega un catch generico: Exception que es la madre de la clase exception  |                                                                                                                                                         |
 |                        | Creando nuestras propias excepciones                                            |                                                                                                                                                         |
-|                        | Se corrige error con busqueda.replace() para pelicula "top gun"                   |                                                                                                                                                         |
-|                        | - libreria URLEncoder                                                           |                                                                                                                                                         |
+|                        | --Se corrige error con busqueda.replace() para por ejemplo pelicula "top gun"   |                                                                                                                                                         |
+|                        | --Se agregan emoticons al readme.md                                             |                                                                                                                                                         |
+|                        | --Se corrige con .replace() en tiempo de la pelicula y substring(0,3)           |                                                                                                                                                         |
+|                        |                                                                                 |                                                                                                                                                         |
+|                        | Creando una excepcion propia, casos por ejemplo runtime=N/A                     |                                                                                                                                                         |
+|                        | - se corrige en TituloOmdb creando nueva excepcion                              |                                                                                                                                                         |
+|                        | - nueva excepcion se llama ErrorEnConversionExcepcion                           |                                                                                                                                                         |
 |                        |                                                                                 |                                                                                                                                                         |
 |                        |                                                                                 |                                                                                                                                                         |
