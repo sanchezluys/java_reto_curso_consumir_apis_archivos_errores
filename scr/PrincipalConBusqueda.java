@@ -5,6 +5,8 @@ import com.google.gson.GsonBuilder;
 import scr.excepciones.ErrorEnConversionException;
 import scr.modelos.Titulo;
 import scr.modelos.TituloOmdb;
+
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -79,6 +81,13 @@ public class PrincipalConBusqueda {
             Titulo miTitulo3 = new Titulo(miTituloOmdb2);
             System.out.println("titulo 3: " + miTitulo3);
             //**
+            // archivos
+            System.out.println("*******************************");
+            System.out.println("** Crear Archivos **");
+            FileWriter escritura = new FileWriter("peliculas.txt");
+            escritura.write(miTituloOmdb2.toString());
+            escritura.close();
+
 
         }
         catch (NumberFormatException e){
@@ -122,6 +131,8 @@ public class PrincipalConBusqueda {
             System.out.println(response.body());
 
             System.out.println("nueva direccion corregida con .replace(), sin errores\n"+ direccion);
+
+
         }
         catch (IllegalArgumentException e){
             System.out.println("Se ha dado una excepcion");
