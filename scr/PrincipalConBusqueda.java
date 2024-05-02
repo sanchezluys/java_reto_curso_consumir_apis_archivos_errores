@@ -77,6 +77,8 @@ public class PrincipalConBusqueda {
 
             Titulo miTitulo3 = new Titulo(miTituloOmdb2);
             System.out.println("titulo 3: " + miTitulo3);
+            //**
+
         }
         catch (NumberFormatException e){
             System.out.println("Acaba de ocurrir un error! NumberFormatException ");
@@ -94,6 +96,31 @@ public class PrincipalConBusqueda {
             System.out.println("Causa del error: " + e.getCause());
         }
         System.out.println("Finaliza el programa, asi suceda un error");
+        //** ahora corrigiendo con .replace()
+        try {
+            Scanner lectura = new Scanner(System.in);
+            System.out.println("****************************************");
+            System.out.println("Correccion de peliculas con espacios agregando .replace()");
+            System.out.println("****************************************");
+            System.out.println("Escriba el nombre la pelicula con espacios, ejemplo: *top gun* para buscarla: ");
+            var busqueda = lectura.nextLine();
+            String clave = System.getenv("apk_key");
+            String direccion = "https://www.omdbapi.com/?t=" + busqueda.replace(" ","+") + "&apikey=" + clave;
+            //**
+                HttpClient client = HttpClient.newHttpClient();
+                HttpRequest request = HttpRequest.newBuilder()
+                        .uri(URI.create(direccion))
+                        .build();
+                HttpResponse<String> response = client
+                        .send(request, HttpResponse.BodyHandlers.ofString());
+            //**
+            System.out.println(response.body());
+
+            System.out.println("nueva direccion corregida con .replace(), sin errores"+ direccion);
+        }
+        catch (IllegalArgumentException e){
+            System.out.println("Se ha dado una excepcion");
+        }
 
 
     }

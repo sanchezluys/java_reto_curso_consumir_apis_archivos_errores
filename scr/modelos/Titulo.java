@@ -22,7 +22,7 @@ public class Titulo implements Comparable<Titulo>{
         this.fechaDeLanzamiento= Integer.valueOf(miTituloOmdb2.year());
         //this.duracionEnMinutos=Integer.valueOf(miTituloOmdb2.runtime());
         //se tiene que corregir por el error de 60 min
-        this.duracionEnMinutos=Integer.valueOf(miTituloOmdb2.runtime().substring(0,2));
+        this.duracionEnMinutos=Integer.valueOf(miTituloOmdb2.runtime().substring(1,3));
     }
 
     public String getNombre() {
