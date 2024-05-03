@@ -31,9 +31,14 @@ public class PrincipalConBusqueda {
         System.out.println("** USANDO API DE https://www.omdbapi.com/      ***");
         System.out.println("**************************************************");
         //** lista de peliculas
-        List<Titulo> titulos = new ArrayList<>();
+        List<TituloOmdb> titulos = new ArrayList<>();
         //** se agrega el while()
         Integer cuenta =1;
+        Gson gson2 = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy
+                        .UPPER_CAMEL_CASE)
+                .setPrettyPrinting()
+                .create();
         while (true) {
             System.out.println("Escriba nombre de la pelicula #"+cuenta+" para buscarla\n <<salir>> para salir del programa: ");
             var busqueda = lectura.nextLine();
@@ -54,15 +59,14 @@ public class PrincipalConBusqueda {
                 Gson gson = new Gson();
                 String json = response.body();
                 //**
-                Gson gson2 = new GsonBuilder()
-                        .setFieldNamingPolicy(FieldNamingPolicy
-                                .UPPER_CAMEL_CASE).create();
+
                 //** ahora con el nuevo gson2
                 TituloOmdb miTituloOmdb2 = gson2.fromJson(json, TituloOmdb.class);
 
                 Titulo miTitulo3 = new Titulo(miTituloOmdb2);
                 System.out.println("✅ titulo encontrado: " + miTitulo3);
                 System.out.println("-------------------------------------");
+                titulos.add(miTituloOmdb2);
 
             }
             catch (NumberFormatException e) {
@@ -88,11 +92,14 @@ public class PrincipalConBusqueda {
         //**
         // archivos
         System.out.println("*******************************");
-        System.out.println("** Crear Archivos **");
-        FileWriter escritura = new FileWriter("peliculas.txt");
+        System.out.println("** Crear Archivos JSON **");
+        System.out.println("la lista contiene: "+ (cuenta-1) + " titulos: "+titulos);
+        String nombreArchivo="titulos.json";
+        FileWriter escritura = new FileWriter(nombreArchivo);
         //escritura.write(miTituloOmdb2.toString());
-        escritura.write("escribiendo en el archivo...");
+        escritura.write(gson2.toJson(titulos));
         escritura.close();
-        System.out.println("Finaliza el programa, asi sucedan un errores");
+        System.out.println("\uD83D\uDCC2 Archivo " + nombreArchivo + " creado y guardado con exito!");
+        System.out.println("⚙\uFE0F Finaliza el programa, asi sucedan excepciones");
     }
 }
