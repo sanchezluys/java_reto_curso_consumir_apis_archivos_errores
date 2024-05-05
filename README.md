@@ -53,3 +53,5 @@ Avances del curso
 |                          | Se inicia nueva rama Swapi                                                              |                                                                                                                                                       |
 |                          | Se hace la consulta a la api                                                            |                                                                                                                                                       |
 |                          | Se guarda un archivo .json con el nombre de la pelicula.                                |                                                                                                                                                       |
+
+![img.png](img.png)
