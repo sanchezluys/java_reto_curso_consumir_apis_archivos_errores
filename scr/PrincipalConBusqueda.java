@@ -25,7 +25,7 @@ public class PrincipalConBusqueda {
         //** lista de peliculas
         List<TituloOmdb> titulos = new ArrayList<>();
         //** se agrega el while()
-        Integer cuenta =1;
+        int cuenta =1;
         //Gson gson2 = new Gson();
         Gson gson2 = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy
