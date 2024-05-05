@@ -3,9 +3,9 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import scr.excepciones.ErrorEnConversionException;
+import scr.modelos.Encabezado;
 import scr.modelos.Titulo;
 import scr.modelos.TituloOmdb;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
@@ -18,22 +18,15 @@ import java.util.Scanner;
 //
 public class PrincipalConBusqueda {
     public static void main(String[] args) throws IOException, InterruptedException {
+        Encabezado encabezado = new Encabezado();
+        encabezado.muestraEncabezado();
         //** variables del curso:
-        // emoticones: ⚠️🔥📝✅❎📂⚙️🏷️📦📆🗓️🕑🏁➡️⬆️🎁🛒🛍️✏️🖍️✂️🔒🔓💎😀😃
-        String profesor="Bruno Darío Fernández Ellerbach";
-        //**
         Scanner lectura = new Scanner(System.in);
-        System.out.println("********** ALURA LATAM ***************");
-        System.out.println("** CURSO JAVA APIS/ARCHIVOS/ERRORES ***");
-        System.out.println("** Profesor: " + profesor + " ***");
-        System.out.println("**************************************************");
-        //**
-        System.out.println("** USANDO API DE https://www.omdbapi.com/      ***");
-        System.out.println("**************************************************");
         //** lista de peliculas
         List<TituloOmdb> titulos = new ArrayList<>();
         //** se agrega el while()
         Integer cuenta =1;
+        //Gson gson2 = new Gson();
         Gson gson2 = new GsonBuilder()
                 .setFieldNamingPolicy(FieldNamingPolicy
                         .UPPER_CAMEL_CASE)
@@ -56,7 +49,7 @@ public class PrincipalConBusqueda {
                         .build();
                 HttpResponse<String> response = client
                         .send(request, HttpResponse.BodyHandlers.ofString());
-                Gson gson = new Gson();
+
                 String json = response.body();
                 //**
 
